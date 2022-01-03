@@ -1,0 +1,28 @@
+# IP Fabric
+## Snapshots
+{%- for snapshot in allSnapshots %}
+### Name: {{ snapshot.name }}
+#### ID: {{ snapshot.id }}
+#### State: {{ snapshot.state }}
+#### Status: {{ snapshot.status }}
+#### Note: {{ snapshot.note }}
+#### Version: {{ snapshot.version }}
+#### Loaded Size: {{ snapshot.loadedSize }}
+#### Total Devices: {{ snapshot.totalDevices }}
+##### Total Device Count: {{ snapshot.licensedDevCount }}
+##### Licensed Devices: {{ snapshot.licensedDevCount }}
+#### Timestamps
+##### Start: {{ snapshot.tsStart }}
+##### Finished: {{ snapshot.tsEnd }}
+#### Sites
+{%-     for site in snapshot.sites %}
+##### Site: {{ site.siteName }}
+###### UID: {{ site.uid }}
+###### ID: {{ site.id }}
+{%-     endfor%}
+#### Errors
+{%-     for error in snapshot.errors %}
+##### Error Type: {{ error.errorType }}
+###### Total Errors: {{ error.count }}
+{%-     endfor %}
+{%- endfor %}
